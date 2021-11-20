@@ -24,3 +24,30 @@ Navigate to http://localhost:8080/fastapi to test the API.
 
 Done! Go to *localhost:8001* to see the app
 
+
+##Kubernetes deployment
+
+``kubectl apply -f api.yaml``
+
+If working locally,use port forwarding to expose the service
+
+``kubectl port-forward service/fastapi-kubernetes-svc 8002``
+
+To scale the deployment, apply a HorizontalPodAutoscaler. Either:
+
+    kubectl apply -f autoscale.yaml
+
+## Load testing
+
+Use `locust` to simulate a high load on the API
+
+    pip install locust
+    locust
+
+![Load testing with Locust](./resources/locust.PNG)
+
+## Teardown
+
+    kubectl delete deployment fastapi-kubernetes
+    kubectl delete svc fastapi-kubernetes-svc
+    kubectl delete hpa fastapi-kubernetes-hpa
