@@ -13,5 +13,5 @@ Run from active Python environment using `uvicorn`:
 Navigate to http://localhost:8080/fastapi to test the API.
 
 
-![Test drive the API](./resources/fastapi.png)
+![Test drive the API](./resources/fastapi.PNG)
 
